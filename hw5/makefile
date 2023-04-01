@@ -12,4 +12,4 @@ all: ${EXE}
 	sudo chmod +s $@
 
 clean:
-	rm -f %.exe
+	rm ${EXE}
