@@ -77,6 +77,12 @@ long Dir_total_size(char *pathname){
     if(dirp != NULL){
         ent = readdir(dirp);
     }
+    
+    // solve problem that some file cannot access
+    if(access(pathname, W_OK) != 0){
+        return -1;
+    }
+
     // 讀取第一個物件（不一定是檔案）
     while(ent != NULL){
         //『這個目錄』及『上一層目錄』跳過不處理
